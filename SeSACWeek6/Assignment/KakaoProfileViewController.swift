@@ -21,30 +21,30 @@ class KakaoProfileViewController: UIViewController {
         return imageView
     }()
     
-    let xmarkImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "xmark")
-        imageView.tintColor = .white
-        return imageView
+    lazy var xmarkButton = {
+        let button = UIButton()
+        self.configButton(button, title: nil, image: "xmark", imageSize: topRightButtonImageSize)
+        
+        return button
     }()
     
     lazy var giftButton = {
         let button = UIButton()
-        self.configBottomButton(button, title: nil, image: "gift.circle", imageSize: topRightButtonImageSize)
+        self.configButton(button, title: nil, image: "gift.circle", imageSize: topRightButtonImageSize)
         
         return button
     }()
     
     lazy var diceButton = {
         let button = UIButton()
-        self.configBottomButton(button, title: nil, image: "circle.grid.3x3.circle", imageSize: topRightButtonImageSize)
+        self.configButton(button, title: nil, image: "circle.grid.3x3.circle", imageSize: topRightButtonImageSize)
         
         return button
     }()
     
     lazy var settingButton = {
         let button = UIButton()
-        self.configBottomButton(button, title: nil, image: "gearshape.circle", imageSize: topRightButtonImageSize)
+        self.configButton(button, title: nil, image: "gearshape.circle", imageSize: topRightButtonImageSize)
         
         return button
     }()
@@ -68,21 +68,21 @@ class KakaoProfileViewController: UIViewController {
     
     lazy var chattingButton = {
         let button = UIButton()
-        self.configBottomButton(button, title: "나와의 채팅", image: "bubble.left.fill", imageSize: bottomButtonImageSize)
+        self.configButton(button, title: "나와의 채팅", image: "bubble.left.fill", imageSize: bottomButtonImageSize)
         
         return button
     }()
     
     lazy var editProfileButton = {
         let button = UIButton()
-        self.configBottomButton(button, title: "프로필 편집", image: "pencil.line", imageSize: bottomButtonImageSize)
+        self.configButton(button, title: "프로필 편집", image: "pencil.line", imageSize: bottomButtonImageSize)
         
         return button
     }()
     
     lazy var kakaoStoryButton = {
         let button = UIButton()
-        self.configBottomButton(button, title: "카카오스토리", image: "quote.closing", imageSize: bottomButtonImageSize)
+        self.configButton(button, title: "카카오스토리", image: "quote.closing", imageSize: bottomButtonImageSize)
         
         return button
     }()
@@ -115,9 +115,15 @@ class KakaoProfileViewController: UIViewController {
         configLayoutConstraints()
     }
     
+    // MARK: - Actions
+    
+    @objc func tappedXmark() {
+        dismiss(animated: true)
+    }
+    
     // MARK: - Helpers
     
-    func configBottomButton(_ button: UIButton, title: String?, image: String, imageSize: CGFloat) {
+    func configButton(_ button: UIButton, title: String?, image: String, imageSize: CGFloat) {
         var config = UIButton.Configuration.plain()
         
         if let title {
@@ -140,7 +146,7 @@ class KakaoProfileViewController: UIViewController {
     }
     
     func configLayoutConstraints() {
-        let viewList = [backgroundImageView, xmarkImageView, topRightStackView, profileImageView, nicknameLabel, bottomStackView]
+        let viewList = [backgroundImageView, xmarkButton, topRightStackView, profileImageView, nicknameLabel, bottomStackView]
         for item in viewList {
             view.addSubview(item)
         }
@@ -149,13 +155,14 @@ class KakaoProfileViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
-        xmarkImageView.snp.makeConstraints { make in
+        xmarkButton.addTarget(self, action: #selector(tappedXmark), for: .touchUpInside)
+        xmarkButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.equalTo(view).offset(16)
         }
         
         topRightStackView.snp.makeConstraints { make in
-            make.centerY.equalTo(xmarkImageView)
+            make.centerY.equalTo(xmarkButton)
             make.trailing.equalTo(view).offset(-16)
         }
         

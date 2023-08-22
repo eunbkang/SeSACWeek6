@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
     let signUpButton = UIButton()
+    let chatButton = UIButton()
     
     let textViewButton = UIButton()
     let kakaoProfileButton = UIButton()
@@ -64,6 +65,15 @@ class ViewController: UIViewController {
         configSignUpButtonWithLayoutAnchor()
         configTextViewButtonWithLayoutAnchor()
         configKakaoProfileButtonWithLayoutAnchor()
+        configChatButtonWithLayoutAnchor()
+    }
+    
+    // MARK: - Actions
+    
+    @objc func tappedChatButton() {
+        let vc = ChatViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     @objc func tappedKakaoProfileButton() {
@@ -83,6 +93,8 @@ class ViewController: UIViewController {
         
         present(vc, animated: true)
     }
+    
+    // MARK: - Helpers
     
     func configSignUpButtonWithLayoutAnchor() {
         view.addSubview(signUpButton)
@@ -129,6 +141,22 @@ class ViewController: UIViewController {
             kakaoProfileButton.widthAnchor.constraint(equalTo: signUpButton.widthAnchor),
             kakaoProfileButton.heightAnchor.constraint(equalTo: signUpButton.heightAnchor),
             kakaoProfileButton.bottomAnchor.constraint(equalTo: textViewButton.topAnchor, constant: -16)
+        ])
+    }
+    
+    func configChatButtonWithLayoutAnchor() {
+        view.addSubview(chatButton)
+        chatButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        chatButton.backgroundColor = .systemOrange
+        chatButton.setTitle("Chatting", for: .normal)
+        chatButton.addTarget(self, action: #selector(tappedChatButton), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            chatButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            chatButton.widthAnchor.constraint(equalTo: signUpButton.widthAnchor),
+            chatButton.heightAnchor.constraint(equalTo: signUpButton.heightAnchor),
+            chatButton.bottomAnchor.constraint(equalTo: kakaoProfileButton.topAnchor, constant: -16)
         ])
     }
 }
