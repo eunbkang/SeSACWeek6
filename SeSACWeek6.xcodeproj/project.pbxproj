@@ -17,6 +17,7 @@
 		7E6528932A944670004F466B /* SnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528922A944670004F466B /* SnapViewController.swift */; };
 		7E6528972A945CAC004F466B /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528962A945CAC004F466B /* TextViewController.swift */; };
 		7E6528992A94792A004F466B /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528982A94792A004F466B /* LocationViewController.swift */; };
+		7E65289D2A949CFA004F466B /* KakaoProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E65289C2A949CFA004F466B /* KakaoProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		7E6528922A944670004F466B /* SnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapViewController.swift; sourceTree = "<group>"; };
 		7E6528962A945CAC004F466B /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		7E6528982A94792A004F466B /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		7E65289C2A949CFA004F466B /* KakaoProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		7E6528792A9309FC004F466B /* SeSACWeek6 */ = {
 			isa = PBXGroup;
 			children = (
+				7E65289B2A949CED004F466B /* Assignment */,
 				7E65289A2A94792F004F466B /* Location */,
 				7E6528912A944641004F466B /* Test */,
 				7E65287A2A9309FC004F466B /* AppDelegate.swift */,
@@ -92,6 +95,14 @@
 				7E6528982A94792A004F466B /* LocationViewController.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		7E65289B2A949CED004F466B /* Assignment */ = {
+			isa = PBXGroup;
+			children = (
+				7E65289C2A949CFA004F466B /* KakaoProfileViewController.swift */,
+			);
+			path = Assignment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 				7E6528992A94792A004F466B /* LocationViewController.swift in Sources */,
 				7E65287B2A9309FC004F466B /* AppDelegate.swift in Sources */,
 				7E65287D2A9309FC004F466B /* SceneDelegate.swift in Sources */,
+				7E65289D2A949CFA004F466B /* KakaoProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

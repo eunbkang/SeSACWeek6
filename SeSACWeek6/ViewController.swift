@@ -25,6 +25,9 @@ class ViewController: UIViewController {
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
     let signUpButton = UIButton()
+    
+    let textViewButton = UIButton()
+    let kakaoProfileButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,14 +59,23 @@ class ViewController: UIViewController {
         
         view.addConstraints([leading, trailing, height, top])
         
-        
-        
-        
-        
         passwordTextField.backgroundColor = .red
         
         configSignUpButtonWithLayoutAnchor()
+        configTextViewButtonWithLayoutAnchor()
+        configKakaoProfileButtonWithLayoutAnchor()
+    }
+    
+    @objc func tappedKakaoProfileButton() {
+        let vc = KakaoProfileViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    @objc func tappedTextViewButton() {
+        let vc = TextViewController()
         
+        present(vc, animated: true)
     }
     
     @objc func tappedSignUpButton() {
@@ -77,6 +89,7 @@ class ViewController: UIViewController {
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         
         signUpButton.backgroundColor = .systemPink
+        signUpButton.setTitle("Location", for: .normal)
         signUpButton.addTarget(self, action: #selector(tappedSignUpButton), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
@@ -84,6 +97,38 @@ class ViewController: UIViewController {
             signUpButton.widthAnchor.constraint(equalToConstant: 300),
             signUpButton.heightAnchor.constraint(equalToConstant: 48),
             signUpButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    func configTextViewButtonWithLayoutAnchor() {
+        view.addSubview(textViewButton)
+        textViewButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        textViewButton.backgroundColor = .systemMint
+        textViewButton.setTitle("TextView", for: .normal)
+        textViewButton.addTarget(self, action: #selector(tappedTextViewButton), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            textViewButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textViewButton.widthAnchor.constraint(equalTo: signUpButton.widthAnchor),
+            textViewButton.heightAnchor.constraint(equalTo: signUpButton.heightAnchor),
+            textViewButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -16)
+        ])
+    }
+    
+    func configKakaoProfileButtonWithLayoutAnchor() {
+        view.addSubview(kakaoProfileButton)
+        kakaoProfileButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        kakaoProfileButton.backgroundColor = .systemIndigo
+        kakaoProfileButton.setTitle("KakaoProfile", for: .normal)
+        kakaoProfileButton.addTarget(self, action: #selector(tappedKakaoProfileButton), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            kakaoProfileButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            kakaoProfileButton.widthAnchor.constraint(equalTo: signUpButton.widthAnchor),
+            kakaoProfileButton.heightAnchor.constraint(equalTo: signUpButton.heightAnchor),
+            kakaoProfileButton.bottomAnchor.constraint(equalTo: textViewButton.topAnchor, constant: -16)
         ])
     }
 }
