@@ -116,8 +116,17 @@ class ChatViewController: UIViewController {
         return label
     }()
     
+    lazy var cloudImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "cloudEmoticon")
+        configChatView(imageView)
+        configChatImage(imageView)
+        
+        return imageView
+    }()
+    
     lazy var chatStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [firstChatLabel, secondChatLabel, thirdChatLabel, fourthChatLabel])
+        let stackView = UIStackView(arrangedSubviews: [firstChatLabel, secondChatLabel, thirdChatLabel, cloudImageView, fourthChatLabel])
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fill
@@ -162,27 +171,35 @@ class ChatViewController: UIViewController {
         
         chatStackView.snp.makeConstraints { make in
             make.leading.equalTo(dateLabel.snp.leading)
+            make.trailing.lessThanOrEqualTo(view).offset(-24)
             make.top.equalTo(locationStackView.snp.bottom).offset(24)
         }
-        
     }
     
     func configChatLabel(_ label: UILabel) {
         label.textAlignment = .center
         label.font = .preferredFont(forTextStyle: .subheadline)
+        label.numberOfLines = 0
+        
+        label.heightAnchor.constraint(equalToConstant: label.intrinsicContentSize.height + 20).isActive = true
+        label.widthAnchor.constraint(equalToConstant: label.intrinsicContentSize.width + 20).isActive = true
+    }
+    
+    func configChatImage(_ imageView: UIImageView) {
+        let width = view.frame.width * 0.4
+        let height = width * 2/3
+        
+        imageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: height).isActive = true
+        
+        imageView.contentMode = .scaleAspectFit
     }
 
     func configChatView(_ view: UIView) {
-        
-        
-        view.contentMode = .center
         view.backgroundColor = .white
-        view.heightAnchor.constraint(equalToConstant: view.intrinsicContentSize.height + 20).isActive = true
-        view.widthAnchor.constraint(equalToConstant: view.intrinsicContentSize.width + 20).isActive = true
         
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
-        
     }
     
     func configButton(_ button: UIButton, title: String?, image: String, imageSize: CGFloat) {
