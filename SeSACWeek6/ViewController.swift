@@ -89,9 +89,13 @@ class ViewController: UIViewController {
     }
     
     @objc func tappedSignUpButton() {
-        let vc = LocationViewController()
+//        let vc = LocationViewController()
+//        let nav = UINavigationController(rootViewController: vc)
+//
+//        present(nav, animated: true)
         
-        present(vc, animated: true)
+        // 클래스의 인스턴스가 아니라 클래스 자체(메타타입 구조체?)를 넘겨줌
+        transition(viewController: GenericViewController.self, storyboard: "Main", style: .push)
     }
     
     // MARK: - Helpers

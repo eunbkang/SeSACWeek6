@@ -9,10 +9,13 @@ import UIKit
 
 class TextViewController: UIViewController {
     
+    //[Image] 1.
+    let picker = UIImagePickerController()
+    
     let photoImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .systemMint
-        imageView.contentMode = .scaleAspectFill
+//        imageView.contentMode = .scaleAspectFillㅇ
         return imageView
     }()
     // 뒤에 () 붙어있으므로 클로저 구문. 없으면 연산 프로퍼티
@@ -50,6 +53,8 @@ class TextViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         view.backgroundColor = .white
         
@@ -70,6 +75,28 @@ class TextViewController: UIViewController {
 //        }
         
         configLayoutConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //[Image] 2. 권한 체크
+//        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+//            print("갤러리 사용 불가. 여기에서 사용자에게 토스트/얼럿, 설정으로 이동 등")
+//            return
+//        }
+//
+//        picker.delegate = self
+        
+        //[Image] 이미지피커 뷰 타입 설정
+//        picker.sourceType = .photoLibrary
+//        picker.sourceType = .camera
+//        picker.allowsEditing = true
+        
+        let picker = UIFontPickerViewController()
+//        let picker = UIColorPickerViewController()
+        
+        present(picker, animated: true)
     }
     
     func configLayoutConstraints() {
@@ -118,4 +145,21 @@ class TextViewController: UIViewController {
 //
 //        return imageView
 //    }
+}
+
+extension TextViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // UINavigationControllerDelegate: 피커 안에서 앨범 클릭 등 했을 때 네비게이션으로 이동하게 되므로 같이 호출
+    
+    // 취소 버튼 눌렀을 때
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+    
+    // 사진을 선택하거나 카메라 촬영 직후 호출
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.photoImageView.image = image
+            dismiss(animated: true)
+        }
+    }
 }
