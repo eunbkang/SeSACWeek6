@@ -25,6 +25,8 @@
 		7E6528B62A972A14004F466B /* CustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528B52A972A14004F466B /* CustomTableViewController.swift */; };
 		7E6528BA2A97774C004F466B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528B92A97774C004F466B /* MovieViewController.swift */; };
 		7E6528BD2A9789CF004F466B /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528BC2A9789CF004F466B /* PreviewImageView.swift */; };
+		7E6528BF2A979F93004F466B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528BE2A979F93004F466B /* SignUpViewController.swift */; };
+		7E6528C12A97A2E3004F466B /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528C02A97A2E3004F466B /* SignUpTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		7E6528B52A972A14004F466B /* CustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewController.swift; sourceTree = "<group>"; };
 		7E6528B92A97774C004F466B /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		7E6528BC2A9789CF004F466B /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
+		7E6528BE2A979F93004F466B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7E6528C02A97A2E3004F466B /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 				7E65289C2A949CFA004F466B /* KakaoProfileViewController.swift */,
 				7E65289E2A94DEAD004F466B /* ChatViewController.swift */,
 				7E6528B92A97774C004F466B /* MovieViewController.swift */,
+				7E6528BE2A979F93004F466B /* SignUpViewController.swift */,
 			);
 			path = Assignment;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				7E6528BC2A9789CF004F466B /* PreviewImageView.swift */,
+				7E6528C02A97A2E3004F466B /* SignUpTextField.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -236,10 +242,12 @@
 				7E65287F2A9309FC004F466B /* ViewController.swift in Sources */,
 				7E6528992A94792A004F466B /* LocationViewController.swift in Sources */,
 				7E65287B2A9309FC004F466B /* AppDelegate.swift in Sources */,
+				7E6528BF2A979F93004F466B /* SignUpViewController.swift in Sources */,
 				7E6528B22A971CDE004F466B /* CustomViewController.swift in Sources */,
 				7E65287D2A9309FC004F466B /* SceneDelegate.swift in Sources */,
 				7E6528BD2A9789CF004F466B /* PreviewImageView.swift in Sources */,
 				7E6528AC2A96F102004F466B /* UIViewController+Extension.swift in Sources */,
+				7E6528C12A97A2E3004F466B /* SignUpTextField.swift in Sources */,
 				7E65289D2A949CFA004F466B /* KakaoProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
