@@ -27,6 +27,9 @@
 		7E6528BD2A9789CF004F466B /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528BC2A9789CF004F466B /* PreviewImageView.swift */; };
 		7E6528BF2A979F93004F466B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528BE2A979F93004F466B /* SignUpViewController.swift */; };
 		7E6528C12A97A2E3004F466B /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528C02A97A2E3004F466B /* SignUpTextField.swift */; };
+		7E6528C32A982AFC004F466B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528C22A982AFC004F466B /* CustomTableViewCell.swift */; };
+		7E6528C52A9840A6004F466B /* PosterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528C42A9840A6004F466B /* PosterImageView.swift */; };
+		7E6528C82A984B4B004F466B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6528C72A984B4B004F466B /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		7E6528BC2A9789CF004F466B /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
 		7E6528BE2A979F93004F466B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7E6528C02A97A2E3004F466B /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
+		7E6528C22A982AFC004F466B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		7E6528C42A9840A6004F466B /* PosterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterImageView.swift; sourceTree = "<group>"; };
+		7E6528C72A984B4B004F466B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 		7E6528792A9309FC004F466B /* SeSACWeek6 */ = {
 			isa = PBXGroup;
 			children = (
+				7E6528C62A984B0E004F466B /* Onboarding */,
 				7E6528B02A971CAD004F466B /* Custom */,
 				7E6528A82A96F0D3004F466B /* Generic */,
 				7E65289B2A949CED004F466B /* Assignment */,
@@ -143,6 +150,8 @@
 				7E6528B12A971CDE004F466B /* CustomViewController.swift */,
 				7E6528B32A971E9E004F466B /* BlackRadiusTextField.swift */,
 				7E6528B52A972A14004F466B /* CustomTableViewController.swift */,
+				7E6528C22A982AFC004F466B /* CustomTableViewCell.swift */,
+				7E6528C42A9840A6004F466B /* PosterImageView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -154,6 +163,14 @@
 				7E6528C02A97A2E3004F466B /* SignUpTextField.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		7E6528C62A984B0E004F466B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7E6528C72A984B4B004F466B /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,11 +249,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6528C32A982AFC004F466B /* CustomTableViewCell.swift in Sources */,
 				7E6528AA2A96F0EF004F466B /* GenericViewController.swift in Sources */,
+				7E6528C52A9840A6004F466B /* PosterImageView.swift in Sources */,
 				7E6528BA2A97774C004F466B /* MovieViewController.swift in Sources */,
 				7E6528972A945CAC004F466B /* TextViewController.swift in Sources */,
 				7E6528932A944670004F466B /* SnapViewController.swift in Sources */,
 				7E6528B42A971E9E004F466B /* BlackRadiusTextField.swift in Sources */,
+				7E6528C82A984B4B004F466B /* OnboardingViewController.swift in Sources */,
 				7E65289F2A94DEAD004F466B /* ChatViewController.swift in Sources */,
 				7E6528B62A972A14004F466B /* CustomTableViewController.swift in Sources */,
 				7E65287F2A9309FC004F466B /* ViewController.swift in Sources */,

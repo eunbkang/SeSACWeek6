@@ -15,12 +15,28 @@ struct Sample{
 
 class CustomTableViewController: UIViewController {
 
-    let tableView = {
+    // viewDidLoad보다 클로저 구문이 먼저 실행됨
+    // CustomTableViewController 인스턴스 생성 직전에 클로저 구문이 먼저 실행됨
+    // let -> lazy var로 지연 초기화
+    lazy var tableView = {
         let view = UITableView()
         view.rowHeight = UITableView.automaticDimension
+        view.delegate = self // self: 자기 자신의 인스턴스
+        view.dataSource = self
+        
+        view.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
         
         return view
     }()
+    
+    let imageView = {
+        // label, textfield, button 등에서는 frame 포함 필요 없었음
+        // UIView, UIImageView는 컨텐츠 채워넣기 위한 subView를 가지고 있기 때문
+        let view = PosterImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        
+        return view
+    }()
+    
     
 //    var isExpanded = false
     
@@ -34,7 +50,6 @@ class CustomTableViewController: UIViewController {
         super.viewDidLoad()
 
         configLayout()
-        configTableView()
     }
     
     func configLayout() {
@@ -44,13 +59,13 @@ class CustomTableViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    }
-    
-    func configTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            print("constraints")
+            make.size.equalTo(200)
+            make.center.equalTo(view)
+        }
     }
 }
 
@@ -60,20 +75,16 @@ extension CustomTableViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell")!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.textLabel?.text = list[indexPath.row].text
-        cell.textLabel?.numberOfLines = list[indexPath.row].isExpanded ? 0 : 2
+        cell.label.text = list[indexPath.row].text
+        cell.label.numberOfLines = list[indexPath.row].isExpanded ? 0 : 2
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        isExpanded.toggle()
         list[indexPath.row].isExpanded.toggle()
-        
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        
     }
 }
